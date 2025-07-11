@@ -13,8 +13,8 @@ preview_cache = {}
 
 # Font paths (must exist in static/fonts/)
 FONT_DIR = os.path.join(app.root_path, 'static', 'fonts')
-REGULAR_FONT_PATH = os.path.join(FONT_DIR, "Poppins-Regular.ttf")
-BOLD_FONT_PATH = os.path.join(FONT_DIR, "Poppins-Bold.ttf")
+REGULAR_FONT_PATH = os.path.join(FONT_DIR, "times new roman.ttf")
+BOLD_FONT_PATH = os.path.join(FONT_DIR, "times new roman bold.ttf")
 
 
 @app.route('/')
@@ -47,27 +47,27 @@ def generate():
 
         # Load fonts
         try:
-            regular_font = ImageFont.truetype(REGULAR_FONT_PATH, 20)
-            bold_font = ImageFont.truetype(BOLD_FONT_PATH, 20)
+            regular_font = ImageFont.truetype(REGULAR_FONT_PATH, 30)
+            bold_font = ImageFont.truetype(BOLD_FONT_PATH, 30)
         except OSError:
             return "Font files not found. Please check static/fonts/ path."
 
         # Header info
-        draw.text((1050, 360), f"Reg   : {reg_no}", fill="black", font=regular_font)
-        draw.text((1050, 390), f"Place : Bengaluru", fill="black", font=regular_font)
-        draw.text((1050, 420), f"Date  : {issue_date}", fill="black", font=regular_font)
+        draw.text((1050, 370), f"Reg   : {reg_no}", fill="black", font=regular_font)
+        draw.text((1050, 400), f"Place : Bengaluru", fill="black", font=regular_font)
+        draw.text((1050, 430), f"Date  : {issue_date}", fill="black", font=regular_font)
 
         # Paragraph parts
         part1 = [
-            ("This is to certify that ", regular_font),
+            ("This is to certify that", regular_font),
             (name, bold_font),
-            (", ID No. ", regular_font),
+            (", Reg No. ", regular_font),
             (id_no, bold_font),
             (", a student of ", regular_font),
             (department, bold_font),
             (", ", regular_font), 
             (university, bold_font),
-            (", has successfully completed an Offline Internship at our organization in the role of ", regular_font),
+            (", has successfully completed an internship at our organization in the role of ", regular_font),
             (role, bold_font),
             (".", regular_font)
         ]
@@ -139,7 +139,7 @@ def generate():
         if not os.path.exists(excel_path):
             wb = Workbook()
             ws = wb.active
-            ws.title = "data/Certificates"
+            ws.title = "Certificates"
             ws.append([
                 "Name", "ID No", "Department", "University", "Role",
                 "Start Date", "End Date", "Issue Date", "Reg No"
@@ -204,4 +204,4 @@ def cancel():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port=80)    
