@@ -67,7 +67,7 @@ def generate():
             (department, bold_font),
             (", ", regular_font), 
             (university, bold_font),
-            (", has successfully completed an internship at our organization in the role of ", regular_font),
+            (", has successfully completed an Offline Internship at our organization in the role of ", regular_font),
             (role, bold_font),
             (".", regular_font)
         ]
