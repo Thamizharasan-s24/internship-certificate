@@ -139,7 +139,7 @@ def generate():
         if not os.path.exists(excel_path):
             wb = Workbook()
             ws = wb.active
-            ws.title = "Certificates"
+            ws.title = "data/Certificates"
             ws.append([
                 "Name", "ID No", "Department", "University", "Role",
                 "Start Date", "End Date", "Issue Date", "Reg No"
@@ -204,4 +204,4 @@ def cancel():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=80)
