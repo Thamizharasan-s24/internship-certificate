@@ -21,7 +21,7 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           # Go to app directory or clone it
-          cd internship || git clone https://github.com/Thamizharasan-s24/Certificate.git internship  && cd internship
+          cd internship || git clone https://github.com/Thamizharasan-s24/internship-certificate.git internship  && cd internship
           
           # Pull latest code
           git pull origin main
